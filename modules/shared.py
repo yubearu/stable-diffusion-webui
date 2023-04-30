@@ -20,6 +20,8 @@ demo = None
 
 parser = cmd_args.parser
 
+parser.add_argument("--img-output-dir", type=str, help="Sets the output directory for images", default=None)
+
 script_loading.preload_extensions(extensions_dir, parser)
 script_loading.preload_extensions(extensions_builtin_dir, parser)
 
@@ -258,7 +260,6 @@ options_templates.update(options_section(('saving-images', "Saving images/grids"
     "clean_temp_dir_at_start": OptionInfo(False, "Cleanup non-default temporary directory when starting webui"),
 
 }))
-parser.add_argument("--img-output-dir", type=str, help="Sets the output directory for images", default=None)
 img_output_dir: str = cmd_opts.img_output_dir or "outputs/"
     
 options_templates.update(options_section(('saving-paths', "Paths for saving"), {
